@@ -1,14 +1,16 @@
-import React from "react"; 
+import { Inter } from "next/font/google";
 import { SidebarNav } from "@/components/sidebar-nav";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    // FIX: Notice the "flex-col md:flex-row" right here!
-    // This stacks the sidebar on top of the main content on mobile.
-    <div className="flex flex-col md:flex-row min-h-screen bg-background">
+    <div className={`${inter.className} flex flex-col md:flex-row min-h-screen bg-[#050505] text-[#EDEDED] antialiased`}>
       <SidebarNav />
-      <main className="flex-1 p-4 sm:p-8 w-full overflow-x-hidden">
-        {children}
+      <main className="flex-1 p-6 md:p-12 lg:p-16">
+        <div className="max-w-5xl mx-auto">
+          {children}
+        </div>
       </main>
     </div>
   );
